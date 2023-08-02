@@ -1,47 +1,40 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import SiteHeader from './components/SiteHeader.vue'
+import ImageMain from './components/ImageMain.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
+  <header class = "bg-gray">
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <SiteHeader msg="LOGO TEXT" />
     </div>
   </header>
 
-  <main>
-    <TheWelcome />
+  <main class="box">
+    <ImageMain class="mb-20" />
+    <ImageMain />
   </main>
 </template>
 
 <style scoped>
 header {
   line-height: 1.5;
+  font-size: 36px;
 }
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.wrapper{
+    color: #f8f8f8;
+    font-weight: 100;
+    padding: 25px 0 9px 10px;
 }
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.box{
+    background-color: #f8f8f8;
+    box-shadow: 0 4px 10px rgba(0,0,0,.15);
+    padding: 20px 0 30px;
+}
+.bg-gray{
+    background-color: 	#555;
+}
+.mb-20{
+    margin-bottom: 20px;
 }
 </style>
