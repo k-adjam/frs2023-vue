@@ -5,7 +5,7 @@ defineProps({
 </script>
 
 <template>
-    <button type="button" class="block__button mr-m-20"> button {{ index }} </button>
+    <button type="button" class="block__button"> button {{ index }} </button>
 </template>
 
 <style scoped lang="scss">
@@ -20,7 +20,7 @@ defineProps({
     }
 }
 @media screen and (min-width: 768px) {
-    .mr-m-20{
+    .block__button{
         margin-right: 20px;
     }
 }
