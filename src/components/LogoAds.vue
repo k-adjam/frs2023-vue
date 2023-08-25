@@ -1,9 +1,14 @@
 <template>
-    <img alt="ads" class="logo" src="./svg/ads.svg" width="512" height="512" />
+    <img  alt="ads" class="logo" src="./svg/ads.svg" width="512" height="512" />
 </template>
 
 <style scoped lang="scss">
 .logo{
+  display: none;
+}
+@media screen and (min-width: 1280px){
+  .logo{
+    display: block;
     width: 40vw;
     position: fixed;
     bottom: 0;
@@ -12,4 +17,5 @@
     margin-right: 7%;
     filter: invert(100%) sepia(91%) saturate(307%) hue-rotate(223deg) brightness(112%) contrast(94%)
   }
+}
 </style>

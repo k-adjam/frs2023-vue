@@ -1,12 +1,13 @@
 <script setup>
 import ImageMain from "./ImageMain.vue"
-//import LogoAds from "./LogoAds.vue"
 </script>
+
 <template>
     <main class="box">
         <ImageMain class="mb-20 m-m-0" />
         <ImageMain class="m-m-0 ml-m-20 md-ml-0" />
         <slot></slot>
+        <!-- <LogoAds v-if="desktop" class="d-none" :class="{ 'd-block': showLogo }"  /> -->
   </main>
 </template>
 
@@ -19,6 +20,12 @@ import ImageMain from "./ImageMain.vue"
 }
 .mb-20{
     margin-bottom: 20px;
+}
+.d-block{
+  display: block;
+}
+.d-none{
+  display: none;
 }
 @media screen and (min-width: 768px) {
   .box{
