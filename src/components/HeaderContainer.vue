@@ -2,15 +2,11 @@
 // import SiteHeader from "./SiteHeader.vue"
 import FButton from "./FButton.vue"
 import FHamburger from "./FHamburger.vue"
-import {ref, computed} from "vue";
+import {ref} from "vue";
+import { useBreakpoints } from "../composables/useBreakpoints";     
 
 const menuToggled = ref('no');
-const screenWidth = ref(window.innerWidth)
-const mobile = computed(() => screenWidth.value < 768); 
-// const screenWidth = ref(screen.innerWidth)
-window.addEventListener('resize', () => {
-  screenWidth.value = window.innerWidth;
-});
+const {isMobile} = useBreakpoints();
 
 defineEmits(['showLogo']);
 
@@ -22,12 +18,12 @@ defineEmits(['showLogo']);
         <nav class="nav__container"> 
             <button type="button" @click="menuToggled = 'yes'" title="menu" class="button__hamburger d-m-none">
                 <label for="menu" class="pointer"> 
-                <FHamburger />
+                  <FHamburger />
                 </label>
             </button>
             <ul class="nav__menu toggle" :class="{ 'untoggle': menuToggled !== 'no'}" >
                 <li class="mb-20" :class="{'d-m-none': menuToggled === 'no'}">
-                <button v-if="mobile" type="button" @click="menuToggled = 'no'" class="pointer close-button">
+                  <button v-if="isMobile" type="button" @click="menuToggled = 'no'" class="pointer close-button">
                     <img alt="close icon"  src="./svg/closeIcon.svg" width="40" height="40" /></button>
                 </li>
                 <li class="order-1"><FButton :index="1" @click="$emit('showLogo')" class="menu__button pointer" /></li>

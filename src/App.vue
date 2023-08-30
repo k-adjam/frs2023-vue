@@ -2,47 +2,21 @@
 import HeaderContainer from "./components/HeaderContainer.vue"
 import LogoAds from "./components/LogoAds.vue"
 import MainContainer from "./components/MainContainer.vue"
-import {ref, onMounted, onUnmounted} from 'vue';
+// import FFrom from "./components/FForm.vue"
+import { useBreakpoints } from "./composables/useBreakpoints"; 
 
-const screenWidth = ref(screen.innerWidth)
-const windowWidth = ref(null);
-// const desktop = computed(() => screenWidth.value >1280); 
-const visibleAd= ref('hidden');
-
-window.addEventListener('resize', () => {
-  screenWidth.value = window.innerWidth;
-});
-
-const checkWidth = () => {
-    windowWidth.value = window.innerWidth;
-    if (windowWidth.value <= 1280) {
-      visibleAd.value =  'hidden';
-    } 
-    };
-  
-  onMounted(() => {
-    window.addEventListener('resize', checkWidth);
-    checkWidth();
-  });
-
-  onUnmounted(() => {
-  window.removeEventListener('resize', checkWidth);
-  });
-
-const changeVisibility = () => {
-  if (visibleAd.value === 'hidden') {
-    visibleAd.value = 'visible';
-  } else {
-    visibleAd.value = 'hidden';
-  }
-};
+const {isDesktop} = useBreakpoints();
+const {visibleAd} = useBreakpoints();
 
 </script>
 
 <template>
-  <HeaderContainer @show-logo="changeVisibility"/>
+  <HeaderContainer @show-logo="visibleAd = !visibleAd"/>
   <MainContainer>
-    <LogoAds :style="{ visibility: visibleAd }"  />
+    <LogoAds v-if="isDesktop" :style="{ visibility: visibleAd ? 'visible' : 'hidden'}"  />
   </MainContainer>
 </template>
+
+<style scoped lang="scss">
+</style>
 

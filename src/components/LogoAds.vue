@@ -4,18 +4,13 @@
 
 <style scoped lang="scss">
 .logo{
-  display: none;
-}
-@media screen and (min-width: 1280px){
-  .logo{
-    display: block;
-    width: 40vw;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    z-index: -1;
-    margin-right: 7%;
-    filter: invert(100%) sepia(91%) saturate(307%) hue-rotate(223deg) brightness(112%) contrast(94%)
+  width: 40vw;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  margin-right: 7%;
+  filter: invert(100%) sepia(91%) saturate(307%) hue-rotate(223deg) brightness(112%) contrast(94%)
   }
-}
+
 </style>
